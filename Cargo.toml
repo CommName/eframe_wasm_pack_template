@@ -1,0 +1,21 @@
+[package]
+name = "eframe_wasm_pack_template"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+egui = "0.27.2"
+eframe = { version = "0.27.2", default-features = false, features = [
+    "accesskit",     
+    "default_fonts", 
+    "glow",
+    "persistence",
+] }
+wasm-bindgen = "0.2.92"
+wasm-bindgen-futures = "0.4"
+log = "0.4.22"

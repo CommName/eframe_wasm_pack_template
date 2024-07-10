@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <!-- Preload wasm module -->
+    <link rel="modulepreload" href="./pkg/eframe_wasm_pack_template.js" crossorigin=anonymous>
+    <link rel="preload" href="./pkg/eframe_wasm_pack_template_bg.wasm" crossorigin=anonymous as="fetch" type="application/wasm"></head>
+  </head>
+  <body>
+    <!-- The WASM code will resize the canvas dynamically -->
+    <!-- the id is hardcoded in lib.rs . so, make sure both match. -->
+    <canvas id="canvas_id"></canvas>
+
+    <script type="module">
+      // After building your library with wasm-pack all necessery files will appear in pkg directory
+      // Load .js and .wasm files
+      import init, * as bindings from './pkg/eframe_wasm_pack_template.js';
+      const wasm = await init('./pkg/eframe_wasm_pack_template_bg.wasm');
+      bindings.start("World!");
+    </script>
+  </body>
+</html>
